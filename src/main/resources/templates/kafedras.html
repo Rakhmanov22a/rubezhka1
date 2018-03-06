@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <title>Title</title>
+    <link rel="stylesheet" th:href = "@{/css/bootstrap.min.css}" />
+
+</head>
+<body id="books">
+<div class="container">
+    <div class="row">
+        <a th:href = "@{/kafedra/add}" class="btn btn-primary btn-lg" role="button">add</a>
+        <br/>
+        <table class="table">
+            <tr>
+                <th>Kafedra Name</th>
+                <th>Zav Kafedra</th>
+            </tr>
+            <tr th:each = "kafedra : ${kafedras}">
+                <td th:text = "${kafedra.kafedraName}">test</td>
+                <td th:text = "${kafedra.zavKafedra}">test</td>
+                <td> <a th:href = "@{'/kafedra/deleteKafedra?id='+${kafedra.id}}">delete</a></td>
+                <td> <a th:href = "@{'/kafedra/kafedra_update?id='+${kafedra.id}}">update</a></td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<script th:src = "@{/js/bootstrap.min.js}"></script>
+<script th:src="@{/js/jquery-3.3.1.min.js}"></script>
+</body>
+</html>
